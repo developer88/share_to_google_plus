@@ -23,16 +23,16 @@ module ShareToGPlus
   include Capybara::DSL
 
   def navigate_to_onceingermany
-    #visit @community_url
-    #if(page.has_selector?("a.gb_Me.gb_Ha.gb_rb"))
-    #    login!
-    #end
-    #if(page.has_content?('Try the new Google+'))
-    #    try_new_google_plus!
-    #end
-    #open_share_dialog
-    #fill_dialog
-    #save_record
+    visit @community_url
+    if(page.has_selector?("a.gb_Me.gb_Ha.gb_rb"))
+        login!
+    end
+    if(page.has_content?('Try the new Google+'))
+        try_new_google_plus!
+    end
+    open_share_dialog
+    fill_dialog
+    save_record
   end
 
   def save_record
