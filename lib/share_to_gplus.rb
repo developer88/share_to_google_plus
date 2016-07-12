@@ -7,6 +7,7 @@ module ShareToGplus
 
   include Capybara::DSL
 
+  require 'share_to_gplus/it'
   require 'share_to_gplus/sharer'
 
 end

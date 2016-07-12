@@ -6,7 +6,7 @@ module ShareToGplus
         @data = args.shift
     end
 
-    def now!
+    def execute
         sharer = ::Sharer.new(
             login: @credentials[:login],
             password: @credentials[:password],
