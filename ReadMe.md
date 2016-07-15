@@ -1,4 +1,4 @@
-# Share to Google+
+# Share to Google+ community
 
 **Work in progress... maybe.**
 

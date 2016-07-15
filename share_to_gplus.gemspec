@@ -13,13 +13,13 @@ Gem::Specification.new do |gem|
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  #gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "share_to_gplus"
   gem.require_paths = ["lib"]
   gem.version       = ShareToGplus::VERSION
 
-  #gem.add_development_dependency "yard"
-  #gem.add_development_dependency "minitest"
-  #gem.add_development_dependency "mocha"
-  #gem.add_development_dependency "redcarpet"
+  gem.add_runtime_dependency 'capybara', '>=2'
+  gem.add_runtime_dependency 'selenium-webdriver'
+  gem.add_runtime_dependency 'poltergeist'
+
 end

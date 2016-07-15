@@ -1,16 +1,21 @@
-require '../lib/share_to_gplus.rb'
-
 # Fill your actual data here first before running the script
 @login = ""
 @password = ""
-@text = ""
-@url = ""
-@category = ""
-@community_url = ""
+@text = "" # Text to be shared
+@url = "" # link to be shared
+@category = "" # category to be set
+@community_url = "" # link to community
 
 
 puts 'Lets share something to Google+ Community'
-sharer = ShareToGplus::It.new(
-    {login: @login, password: @password},
-    {community_url: @community_url, text: @text, url: @url, category: @category})
+ShareToGplus.configure do |config|
+  config.login = @login
+  config.password = @password
+  config.text = @text
+  config.url = @community_url
+  config.category = @category
+  config.link = @url
+end
+
+sharer = ShareToGplus::It.new
 puts "And result is #{sharer.execute}"

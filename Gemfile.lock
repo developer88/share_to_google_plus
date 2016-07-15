@@ -1,3 +1,11 @@
+PATH
+  remote: .
+  specs:
+    share_to_gplus (0.0.1)
+      capybara (>= 2)
+      poltergeist
+      selenium-webdriver
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +36,7 @@ GEM
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (10.5.0)
     rubyzip (1.2.0)
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
@@ -44,9 +53,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
-  poltergeist
-  selenium-webdriver
+  rake
+  share_to_gplus!
 
 BUNDLED WITH
    1.10.6

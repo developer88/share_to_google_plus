@@ -1,21 +1,22 @@
 module ShareToGplus
   class It
 
-    def initialize(*args)
-        @credentials = args.shift
-        @data = args.shift
+    attr_accessor :config
+
+    def initialize(config = Configuration.new)
+      @config = config
+      @sharer = ::Sharer.new
     end
 
     def execute
-        sharer = ::Sharer.new(
-            login: @credentials[:login],
-            password: @credentials[:password],
-            community_url: @data[:community_url],
-            text: @data[:text],
-            url: @data[:url],
-            category: @data[:category]
-        )
-        sharer.execute
+      sharer.visit_community(url: config.url)
+      sharer.login(login: config.login, password: config.password)
+      sharer.try_new_google_plus
+      sharer.open_share_dialog
+      sharer.fill_data(text: config.text, link: config.link)
+      sharer.close_dialog
+      sharer.set_category(name: config.category)
+      return true
     end
 
   end
