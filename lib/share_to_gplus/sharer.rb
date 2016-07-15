@@ -1,14 +1,28 @@
 module ShareToGplus
+  require 'capybara/dsl'
+  require 'capybara/poltergeist'
+
   class Sharer
 
-    def visit_community(url:)
-      visit url
+    include Capybara::DSL
+
+    def initialize(url: "")
+      @url = url
+      Capybara.configure do |config|
+        config.run_server = false
+        config.default_driver = :selenium
+        config.app_host = url
+      end
+    end
+
+    def visit_community
+      visit @url
     end
 
     def login(login:, password:)
-      return unless page.has_selector?("a.gb_Me.gb_Ha.gb_rb")
+      return unless page.has_selector?("#gb_70")
 
-      find("a.gb_Me.gb_Ha.gb_rb").click
+      find("#gb_70").click
       fill_in 'email', :with => login
       find("input#next").click
       fill_in 'Passwd', :with => password
@@ -25,10 +39,13 @@ module ShareToGplus
       find(:xpath, '//div[@aria-label="Create a new post"]').click
     end
 
-    def fill_data(text:, link:)
+    def fill_text(text:)
       dialog = find("[role='dialog']")
       dialog.find("div:nth-child(1) div:nth-child(2) textarea").set(text)
       find(:xpath, '//div[@aria-label="Add link"]').click
+    end
+
+    def fill_link(link:)
       dialog = find(:xpath, '//div[@role="dialog"]')
       dialog.find('input').set(link)
       dialog.find('input').send_keys :enter

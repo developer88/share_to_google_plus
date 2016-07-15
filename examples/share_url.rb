@@ -1,3 +1,6 @@
+$:.unshift File.dirname(__FILE__) + '/../lib'
+require 'share_to_gplus'
+
 # Fill your actual data here first before running the script
 @login = ""
 @password = ""
@@ -8,7 +11,7 @@
 
 
 puts 'Lets share something to Google+ Community'
-ShareToGplus.configure do |config|
+share_this = ShareToGplus::It.new do |config|
   config.login = @login
   config.password = @password
   config.text = @text
@@ -17,5 +20,4 @@ ShareToGplus.configure do |config|
   config.link = @url
 end
 
-sharer = ShareToGplus::It.new
-puts "And result is #{sharer.execute}"
+puts "And result is #{share_this.execute}"
