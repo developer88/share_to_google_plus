@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    share_to_gplus (0.0.1)
+    share_to_gplus (0.1.0)
       capybara (>= 2)
       poltergeist
       selenium-webdriver
@@ -20,6 +20,7 @@ GEM
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
+    diff-lcs (1.2.5)
     ffi (1.9.10)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -37,6 +38,19 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.5.0)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     rubyzip (1.2.0)
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
@@ -54,6 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   rake
+  rspec
   share_to_gplus!
 
 BUNDLED WITH
