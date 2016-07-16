@@ -30,9 +30,8 @@ module ShareToGplus
     end
 
     def try_new_google_plus
-      return unless page.has_content?('Try the new Google+')
-
       find(:xpath, '//div[contains(., "Try the new Google+") and @role="button"]').click
+      sleep(5)
     end
 
     def open_share_dialog
@@ -52,11 +51,15 @@ module ShareToGplus
     end
 
     def close_dialog
-      all("[role='dialog'] div[role='button']")[4].click
+      find(:xpath, '//span[contains(., "Post")]').click
     end
 
     def set_category(name:)
-      find("[data-name='#{name}']").click
+      find(:xpath, "//div[@data-name='Test']").click
+    end
+
+    def wait_a_little_bit
+      sleep(5)
     end
 
   end

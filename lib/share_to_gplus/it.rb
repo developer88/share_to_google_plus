@@ -3,7 +3,7 @@ module ShareToGplus
 
     attr_accessor :config
 
-    def initialize#(config = Configuration.new)
+    def initialize
       @config = Configuration.new
       yield(@config)
       @sharer = Sharer.new(url: config.url)
@@ -18,6 +18,7 @@ module ShareToGplus
       @sharer.fill_link(link: config.link)
       @sharer.close_dialog
       @sharer.set_category(name: config.category)
+      @sharer.wait_a_little_bit
       return true
     end
 
