@@ -4,8 +4,8 @@ module ShareToGplus
     attr_accessor :config
 
     def initialize
-      @config = Configuration.new
-      yield(@config)
+      @config = ShareToGplus.configuration
+      yield(@config) if block_given?
       @sharer = Sharer.new(url: config.url)
     end
 
