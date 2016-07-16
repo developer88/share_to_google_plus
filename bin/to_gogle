@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'share_to_gplus'
+share_this = ShareToGplus::It.new do |config|
+  config.login = @login
+  config.password = @password
+  config.text = @text
+  config.url = @community_url
+  config.category = @category
+  config.link = @url
+end
+puts "Share to Google+. Status: #{share_this.execute}"
