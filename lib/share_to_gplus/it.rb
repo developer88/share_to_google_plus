@@ -1,4 +1,5 @@
 module ShareToGplus
+
   class It
 
     attr_accessor :config
@@ -6,7 +7,7 @@ module ShareToGplus
     def initialize
       @config = ShareToGplus.configuration
       yield(@config) if block_given?
-      @sharer = Sharer.new(url: config.url)
+      @sharer = Sharer.new(url: config.url, config: @config)
     end
 
     def execute
@@ -19,7 +20,7 @@ module ShareToGplus
       @sharer.close_dialog
       @sharer.set_category(name: config.category)
       @sharer.wait_a_little_bit
-      return true
+      true
     end
 
   end

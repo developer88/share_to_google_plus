@@ -1,4 +1,4 @@
-require "share_to_gplus/version"
+require 'share_to_gplus/version'
 
 module ShareToGplus
 

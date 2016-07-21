@@ -6,12 +6,12 @@ module ShareToGplus
 
     include Capybara::DSL
 
-    def initialize(url: "")
+    def initialize(url: "", config: ShareToGplus.configuration)
       @url = url
-      Capybara.configure do |config|
-        config.run_server = false
-        config.default_driver = :selenium
-        config.app_host = url
+      Capybara.configure do |capybara_config|
+        capybara_config.run_server = false
+        capybara_config.default_driver = config.javascript_driver
+        capybara_config.app_host = url
       end
     end
 
@@ -31,7 +31,7 @@ module ShareToGplus
 
     def try_new_google_plus
       find(:xpath, '//div[contains(., "Try the new Google+") and @role="button"]').click
-      sleep(5)
+      wait_a_little_bit
     end
 
     def open_share_dialog
