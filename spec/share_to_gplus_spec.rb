@@ -1,9 +1,8 @@
-require "spec_helper"
-require "share_to_gplus"
+require 'spec_helper'
+require 'share_to_gplus'
 
 describe ShareToGplus do
-
-  describe "#configure" do
+  describe '#configure' do
     let(:url) { 'http://someurl.com' }
 
     before :each do
@@ -12,7 +11,7 @@ describe ShareToGplus do
       end
     end
 
-    it "returns an array with 10 elements" do
+    it 'returns an array with 10 elements' do
       sharer = ShareToGplus::It.new
 
       expect(sharer.config.url).to eq(url)
@@ -23,14 +22,14 @@ describe ShareToGplus do
     end
   end
 
-  describe "#reset" do
+  describe '#reset' do
     before :each do
       ShareToGplus.configure do |config|
         config.login = ''
       end
     end
 
-    it "resets the configuration" do
+    it 'resets the configuration' do
       ShareToGplus.reset
 
       config = ShareToGplus.configuration

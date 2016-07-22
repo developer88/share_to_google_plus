@@ -21,5 +21,4 @@ module ShareToGplus
   def self.configure
     yield(configuration)
   end
-
 end
