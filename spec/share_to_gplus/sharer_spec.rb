@@ -12,5 +12,7 @@ module ShareToGplus
 
       it { subject.new }
     end
+
+    # TODO: Finish this
   end
 end
