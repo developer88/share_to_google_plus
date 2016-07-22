@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   #gem.rubyforge_project = 'share_to_gplus'
 
   gem.files         = `git ls-files`.split($\)
-  #gem.executables   = ['to_google']
+  gem.executables   = ['sharetogplus']
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = 'share_to_gplus'
   gem.require_paths = ['lib']

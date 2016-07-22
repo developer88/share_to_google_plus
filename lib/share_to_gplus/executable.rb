@@ -10,7 +10,7 @@ module ShareToGplus
       %w(category c),
       %w(link lnk)
     ].freeze
-    MANDATORY_OPTIONS = %w(login password category category)
+    MANDATORY_OPTIONS = %w(login password url category)
 
     attr_accessor :options
 
@@ -33,7 +33,7 @@ module ShareToGplus
           end
         end
       end.parse!
-      if @options.select{|opt| MANDATORY_OPTIONS.include?(opt) }.size != @options.size
+      if @options.select{|opt| MANDATORY_OPTIONS.include?(opt) }.size != @options.size || @options.empty?
         puts 'Not all arguments provided!'
         return false
       end
@@ -43,11 +43,11 @@ module ShareToGplus
     def invoke
       share_this = ShareToGplus::It.new do |config|
         config.login = @options[:login]
-        config.password = @options[password]
-        config.text = @options[text]
-        config.url = @options[community_url]
-        config.category = @options[category]
-        config.link = @options[url]
+        config.password = @options[:password]
+        config.text = @options[:text]
+        config.url = @options[:community_url]
+        config.category = @options[:category]
+        config.link = @options[:url]
       end
       puts "Share to Google+. Status: #{share_this.execute}"
     end
