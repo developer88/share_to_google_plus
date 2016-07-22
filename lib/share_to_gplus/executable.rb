@@ -28,7 +28,7 @@ module ShareToGplus
         opts.banner = 'Usage: sharetogplus [options]'
 
         OPTIONS.each do |option|
-          opts.on("--#{option[0]}", option[1] ? "-#{option[1]}" : '') do |v|
+          opts.on("-#{option[1]}", "--#{option[0]}", 'Required option') do |v|
             @options[option[0].to_sym] = v
           end
         end
