@@ -27,16 +27,16 @@ module ShareToGplus
       OptionParser.new do |opts|
         opts.banner = 'Usage: sharetogplus [options]'
 
-        OPTIONS.each do |option|
-          opts.on("-#{option[1]}", "--#{option[0]}", 'Required option') do |v|
-            @options[option[0].to_sym] = v
-          end
-        end
+        on_service_arguments(opts)
+        on_mandatory_arguments(opts)
+        on_content_arguments(opts)
       end.parse!
-      if @options.select{|opt| MANDATORY_OPTIONS.include?(opt) }.size != @options.size || @options.empty?
-        puts 'Not all arguments provided!'
-        return false
+
+      if @options.empty?
+        puts 'No arguments specified!'
+        exit
       end
+      puts @options.inspect
       true
     end
 
@@ -45,11 +45,53 @@ module ShareToGplus
         config.login = @options[:login]
         config.password = @options[:password]
         config.text = @options[:text]
-        config.url = @options[:community_url]
+        config.url = @options[:url]
         config.category = @options[:category]
-        config.link = @options[:url]
+        config.link = @options[:link]
       end
       puts "Share to Google+. Status: #{share_this.execute}"
+    end
+
+    private
+
+    def on_content_arguments(opts)
+      opts.on('--link LINK', 'LINK to share in Google+ Community') do |v|
+        @options[:link] = v
+      end
+
+      opts.on('-t', '--text TEXT', 'TEXT to share in Google+ Community') do |v|
+        @options[:text] = v
+      end
+
+      opts.on('-c', '--category CATEGORY', 'CATEGORY for new post in Google+ Community') do |v|
+        @options[:category] = v
+      end
+    end
+
+    def on_mandatory_arguments(opts)
+        opts.on('-l', '--login LOGIN', 'LOGIN for authorising in Google+') do |v|
+          @options[:login] = v
+        end
+
+        opts.on('-p', '--password PASSWORD', 'PASSWORD for authorising in Google+') do |v|
+          @options[:password] = v
+        end
+
+        opts.on('-u', '--url URL', 'URL of Google+ community to share a post to') do |v|
+          @options[:url] = v
+        end
+    end
+
+    def on_service_arguments(opts)
+      opts.on_tail('-h', '--help', 'Show this message') do
+        puts opts
+        exit
+      end
+
+      opts.on_tail('-v', '--version', 'Show version') do
+        puts VERSION
+        exit
+      end
     end
   end
 end
