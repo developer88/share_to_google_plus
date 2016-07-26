@@ -14,29 +14,28 @@ module ShareToGplus
 
     attr_accessor :options
 
-    def self.invoke
+    def self.invoke(args)
       executable = new
-      executable.invoke if executable.parse_arguments
+      executable.invoke if executable.parse_arguments(args)
     end
 
     def initialize
       @options = {}
     end
 
-    def parse_arguments
+    def parse_arguments(args)
       OptionParser.new do |opts|
         opts.banner = 'Usage: sharetogplus [options]'
 
         on_service_arguments(opts)
         on_mandatory_arguments(opts)
         on_content_arguments(opts)
-      end.parse!
+      end.parse!(args)
 
       if @options.empty?
         puts 'No arguments specified!'
         exit
       end
-      puts @options.inspect
       true
     end
 
