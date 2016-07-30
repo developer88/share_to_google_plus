@@ -25,8 +25,8 @@ module ShareToGplus
 
     def share
       @sharer.open_share_dialog
-      @sharer.fill_text(text: config.text)
       @sharer.fill_link(link: config.link)
+      @sharer.fill_text(text: config.text)
       @sharer.close_dialog
       @sharer.set_category(name: config.category)
     end
