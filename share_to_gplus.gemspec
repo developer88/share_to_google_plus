@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
   gem.version       = ShareToGplus::VERSION
   gem.license       = 'GPL-3.0'
 
+  gem.required_ruby_version = '>=2.3'
+
   gem.add_runtime_dependency 'capybara', '>=2'
   gem.add_runtime_dependency 'selenium-webdriver'
   gem.add_runtime_dependency 'poltergeist'
