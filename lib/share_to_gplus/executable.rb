@@ -2,17 +2,6 @@ require 'optparse'
 
 module ShareToGplus
   class Executable
-    OPTIONS = [
-      %w(login l),
-      %w(password p),
-      %w(text t),
-      %w(url u),
-      %w(category c),
-      %w(link lnk),
-      %w(javascript_driver d)
-    ].freeze
-    MANDATORY_OPTIONS = %w(login password url category)
-
     attr_accessor :options
 
     def self.invoke(args)
@@ -33,10 +22,8 @@ module ShareToGplus
         on_content_arguments(opts)
       end.parse!(args)
 
-      if @options.empty?
-        puts 'No arguments specified!'
-        exit
-      end
+      raise 'No arguments specified!' if @options.empty?
+
       true
     end
 
@@ -50,7 +37,7 @@ module ShareToGplus
         config.link = @options[:link]
         config.javascript_driver = @options[:javascript_driver]
       end
-      puts "Share to Google+. Status: #{share_this.execute}"
+      share_this.execute
     end
 
     private
