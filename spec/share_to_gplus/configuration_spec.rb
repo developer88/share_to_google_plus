@@ -7,8 +7,10 @@ module ShareToGplus
 
     describe '#login' do
       it 'default value is ""' do
-        expect(subject.login).to eq('')
+        expect(subject.login).to eq(nil)
       end
+
+
     end
 
     describe '#login=' do

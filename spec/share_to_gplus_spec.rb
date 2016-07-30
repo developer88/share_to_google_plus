@@ -34,7 +34,7 @@ describe ShareToGplus do
 
       config = ShareToGplus.configuration
 
-      expect(config.login).to eq('')
+      expect(config.login).to eq(nil)
     end
   end
 end
