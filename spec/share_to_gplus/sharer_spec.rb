@@ -13,6 +13,8 @@ module ShareToGplus
       it { subject.new }
     end
 
-    # TODO: Finish this
+    # No additional Capybara tests here.
+    # Since i use Capybara to browse Google's pages it is quite hard to
+    #   prepare dummy Google-like page for tests and always keep it up to date.
   end
 end

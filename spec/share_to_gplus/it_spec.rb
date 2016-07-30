@@ -6,11 +6,13 @@ module ShareToGplus
     subject { ShareToGplus::It.new }
 
     describe '#execute' do
+      let(:it_class) { ShareToGplus::It }
+      let(:sharer_class) { ShareToGplus::Sharer }
 
       before do
-        expect_any_instance_of(ShareToGplus::It).to receive(:navigate).and_return(true)
-        expect_any_instance_of(ShareToGplus::It).to receive(:share).and_return(true)
-        expect_any_instance_of(ShareToGplus::Sharer).to receive(:wait_a_little_bit).and_return(true)
+        expect_any_instance_of(it_class).to receive(:navigate).and_return(true)
+        expect_any_instance_of(it_class).to receive(:share).and_return(true)
+        expect_any_instance_of(sharer_class).to receive(:wait_a_little_bit).and_return(true)
       end
 
       it 'should return true' do

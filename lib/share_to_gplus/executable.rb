@@ -8,7 +8,8 @@ module ShareToGplus
       %w(text t),
       %w(url u),
       %w(category c),
-      %w(link lnk)
+      %w(link lnk),
+      %w(javascript_driver d)
     ].freeze
     MANDATORY_OPTIONS = %w(login password url category)
 
@@ -47,6 +48,7 @@ module ShareToGplus
         config.url = @options[:url]
         config.category = @options[:category]
         config.link = @options[:link]
+        config.javascript_driver = @options[:javascript_driver]
       end
       puts "Share to Google+. Status: #{share_this.execute}"
     end
@@ -90,6 +92,10 @@ module ShareToGplus
       opts.on_tail('-v', '--version', 'Show version') do
         puts VERSION
         exit
+      end
+
+      opts.on('-d', '--javascript_driver DRIVER', 'Javascript Driver. "selenium" by default') do |v|
+        @options[:javascript_driver] = v
       end
     end
   end
