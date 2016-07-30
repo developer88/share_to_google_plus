@@ -36,8 +36,9 @@ By default the gem uses *selenium* as a web driver. You can specify capybara-com
       ...
     end
 
-### Using CLI
+In this case you need to manually install proper Capybara driver and require it before calling *ShareToGplus*
 
+### Using CLI
 
     share_to_gplus --link http://shre_me.com -c CATEGORY -l LOGIN -p PASSWORD -u http://link_to_google_plus_community
 

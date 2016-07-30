@@ -5,11 +5,9 @@ require 'share_to_gplus/version'
 Gem::Specification.new do |gem|
   gem.authors       = ['Andrey Eremin']
   gem.email         = ['dsoft88@gmail.com']
-  gem.description   = %q{Share text and links to Google+ community}
-  gem.summary       = %q{Share text and links to Google+ community}
+  gem.description   = 'Share text and links to Google+ community'
+  gem.summary       = 'Share text and links to Google+ community'
   gem.homepage      = 'https://github.com/developer88/share_to_google_plus'
-
-  #gem.rubyforge_project = 'share_to_gplus'
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = ['sharetogplus']
@@ -21,7 +19,8 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'capybara', '>=2'
   gem.add_runtime_dependency 'selenium-webdriver'
-  gem.add_runtime_dependency 'poltergeist'
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'guard'
+  gem.add_development_dependency 'guard-rspec'
 end
