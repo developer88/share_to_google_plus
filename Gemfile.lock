@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    share_to_gplus (0.1.0)
+    share_to_gplus (0.1.1)
       capybara (>= 2)
       poltergeist
       selenium-webdriver
