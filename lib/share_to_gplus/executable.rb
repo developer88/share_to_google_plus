@@ -35,7 +35,7 @@ module ShareToGplus
         config.url = @options[:url]
         config.category = @options[:category]
         config.link = @options[:link]
-        config.javascript_driver = @options[:javascript_driver]
+        config.javascript_driver = @options[:javascript_driver] if @options[:javascript_driver]
       end
       share_this.execute
     end

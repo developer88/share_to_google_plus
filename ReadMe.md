@@ -29,7 +29,7 @@ Finally
 
     share_this.execute
 
-By default the gem uses *selenium* as a web driver. You can specify capybara-compatible driver if you want to ([poltergeist](https://github.com/teampoltergeist/poltergeist) for example)
+By default the gem uses *selenium* as a web driver. You can specify capybara-compatible driver if you want to. Currently you can choose between *selenium* and [poltergeist](https://github.com/teampoltergeist/poltergeist)
 
     share_this = ShareToGplus::It.new do |config|
       config.javascript_driver = :poltergeist

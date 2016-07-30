@@ -9,7 +9,7 @@ module ShareToGplus
       @url = url
       Capybara.configure do |capybara_config|
         capybara_config.run_server = false
-        capybara_config.default_driver = config.javascript_driver
+        capybara_config.default_driver = config.javascript_driver.to_sym
         capybara_config.app_host = url
       end
     end
