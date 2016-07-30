@@ -40,11 +40,11 @@ In this case you need to manually install proper Capybara driver and require it 
 
 ### Using CLI
 
-    share_to_gplus --link http://shre_me.com -c CATEGORY -l LOGIN -p PASSWORD -u http://link_to_google_plus_community
+    sharetogplus --link http://shre_me.com -c CATEGORY -l LOGIN -p PASSWORD -u http://link_to_google_plus_community
 
 More information you can find when execute
 
-    share_to_gplus -h
+    sharetogplus -h
 
 ## Contributing
 
