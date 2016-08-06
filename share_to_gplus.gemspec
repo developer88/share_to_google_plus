@@ -9,7 +9,9 @@ Gem::Specification.new do |gem|
   gem.summary       = 'Share text and links to Google+ community'
   gem.homepage      = 'https://github.com/developer88/share_to_google_plus'
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
   gem.executables   = ['sharetogplus']
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = 'share_to_gplus'
