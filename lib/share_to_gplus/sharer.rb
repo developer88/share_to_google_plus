@@ -87,7 +87,4 @@ module ShareToGplus
     end
 
   end
-
-  #require 'share_to_gplus/sharer/old_g'
-  #require 'share_to_gplus/sharer/new_g'
 end

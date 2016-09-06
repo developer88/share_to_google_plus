@@ -10,7 +10,7 @@ module ShareToGplus
         expect(Capybara).to receive(:configure).and_call_original
       end
 
-      it { subject.new }
+      it { subject.new(url: 'http://test.com') }
     end
 
     # No additional Capybara tests here.

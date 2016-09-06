@@ -86,7 +86,7 @@ module ShareToGplus
         @options[:javascript_driver] = v
       end
 
-      opts.on('-gv', '--default_gplus_version VERSION', 'Google+ version. "new" by default') do |v|
+      opts.on('--default_gplus_version VERSION', 'Google+ version. "new" by default') do |v|
         @options[:default_gplus_version] = v
       end
     end
