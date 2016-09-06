@@ -1,9 +1,5 @@
 # CHANGELOG
 
-## 0.2.0
-
-* Add `default_gplus_version` option
-
 ## 0.1.1
 
 * Set minimal ruby version as 2.3
