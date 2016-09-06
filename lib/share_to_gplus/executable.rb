@@ -36,7 +36,6 @@ module ShareToGplus
         config.category = @options[:category]
         config.link = @options[:link]
         config.javascript_driver = @options[:javascript_driver] if @options[:javascript_driver]
-        config.default_gplus_version = @options[:default_gplus_version] if @options[:default_gplus_version]
       end
       share_this.execute
     end
