@@ -36,6 +36,7 @@ module ShareToGplus
         config.category = @options[:category]
         config.link = @options[:link]
         config.javascript_driver = @options[:javascript_driver] if @options[:javascript_driver]
+        config.default_gplus_version = @options[:default_gplus_version] if @options[:default_gplus_version]
       end
       share_this.execute
     end
@@ -83,6 +84,10 @@ module ShareToGplus
 
       opts.on('-d', '--javascript_driver DRIVER', 'Javascript Driver. "selenium" by default') do |v|
         @options[:javascript_driver] = v
+      end
+
+      opts.on('-gv', '--default_gplus_version VERSION', 'Google+ version. "new" by default') do |v|
+        @options[:default_gplus_version] = v
       end
     end
   end

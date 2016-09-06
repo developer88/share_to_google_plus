@@ -20,7 +20,7 @@ module ShareToGplus
       end
     end
 
-    context 'defaulte values' do
+    context 'default values' do
       it 'returns default value' do
         expect(subject.javascript_driver).to eq(:selenium)
       end
